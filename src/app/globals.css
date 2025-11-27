@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Kumbh+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 210 10% 23%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 10% 23%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 23%;
+    --primary: 30 38% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 203 25% 63%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 203 15% 73%;
+    --muted-foreground: 210 10% 40%;
+    --accent: 30 38% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 10% 85%;
+    --input: 210 10% 85%;
+    --ring: 30 38% 42%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 210 10% 23%;
+    --foreground: 0 0% 98%;
+    --card: 210 10% 23%;
+    --card-foreground: 0 0% 98%;
+    --popover: 210 10% 23%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 30 38% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 203 25% 63%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 203 15% 43%;
+    --muted-foreground: 0 0% 73%;
+    --accent: 30 38% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 10% 35%;
+    --input: 210 10% 35%;
+    --ring: 30 38% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Kumbh Sans', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Prompt', sans-serif;
+  }
+}
+
+@layer utilities {
+  .sharp-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* Blog content links */
+.text-gray-600 a {
+  color: #1e3a5f;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.text-gray-600 a:hover {
+  color: #b8935f;
+}
