@@ -155,7 +155,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative pt-20 min-h-screen flex items-center justify-center bg-[#1a1a1a] overflow-hidden">
         {/* Video Background */}
-        {/* <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0 w-full h-full">
           <iframe
             src="https://player.vimeo.com/video/1133923052?autoplay=1&loop=1&muted=1&background=1&controls=0&title=0&byline=0&portrait=0"
             className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full"
@@ -170,8 +170,8 @@ export default function Home() {
             title="AwnGuard Hero Video"
           />
           {/* Dark overlay for better text readability */}
-          {/* <div className="absolute inset-0 bg-black/50" />
-        </div> */}
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
         <div className="relative z-10 text-center px-4 py-20">
           <div className="mb-8">
             <Image
