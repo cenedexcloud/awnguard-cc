@@ -1,0 +1,49 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono, Prompt } from "next/font/google";
+import "./globals.css";
+import ClientBody from "./ClientBody";
+import Script from "next/script";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const prompt = Prompt({
+  variable: "--font-prompt",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+export const metadata: Metadata = {
+  title: "AwnGuard: Clean Awnings, Solar Panels, Power Washing, Window Washing",
+  description: "AwnGuard: Clean awnings, solar panel cleaning, power washing, window washing. Commercial properties in San Diego, Orange County, and Riverside County. Request a quote now!",
+  icons: {
+    icon: '/favicon.ico',
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${prompt.variable}`}>
+      <head>
+        <Script
+          crossOrigin="anonymous"
+          src="//unpkg.com/same-runtime/dist/index.global.js"
+        />
+      </head>
+      <body suppressHydrationWarning className="antialiased">
+        <ClientBody>{children}</ClientBody>
+      </body>
+    </html>
+  );
+}
