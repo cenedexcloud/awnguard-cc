@@ -472,7 +472,7 @@ export default function Home() {
               <div className="max-w-4xl mx-auto">
                 <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                   <iframe
-                    src={`https://player.vimeo.com/video/${vimeoVideoId}?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0#t=4s`}
+                    src={`https://player.vimeo.com/video/${vimeoVideoId}?h=ec&title=0&byline=0&portrait=0&badge=0#t=4s`}
                     className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
