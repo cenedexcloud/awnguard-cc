@@ -130,15 +130,31 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
           {/* Social Share */}
           <div className="flex justify-center gap-6 py-8">
-            <button className="text-[#b8935f] hover:text-[#8b7049] transition-colors" aria-label="Share on Facebook">
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://www.awnguard.com/blog/${post.slug}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#b8935f] hover:text-[#8b7049] transition-colors"
+              aria-label="Share on Facebook"
+            >
               <Facebook className="w-6 h-6" />
-            </button>
-            <button className="text-[#b8935f] hover:text-[#8b7049] transition-colors" aria-label="Share on LinkedIn">
+            </a>
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://www.awnguard.com/blog/${post.slug}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#b8935f] hover:text-[#8b7049] transition-colors"
+              aria-label="Share on LinkedIn"
+            >
               <Linkedin className="w-6 h-6" />
-            </button>
-            <button className="text-[#b8935f] hover:text-[#8b7049] transition-colors" aria-label="Share via Email">
+            </a>
+            <a
+              href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(`Check out this article: https://www.awnguard.com/blog/${post.slug}`)}`}
+              className="text-[#b8935f] hover:text-[#8b7049] transition-colors"
+              aria-label="Share via Email"
+            >
               <Mail className="w-6 h-6" />
-            </button>
+            </a>
           </div>
         </div>
       </main>
