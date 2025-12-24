@@ -50,7 +50,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Choosing the right awning for your business might seem simple, but it\'s a decision that goes beyond design.',
     category: 'Awning Maintenance',
     date: '',
-    image: 'https://ext.same-assets.com/1191166484/2873393069.jpeg',
+    image: '/awningpic.jpg',
     content: {
       intro: 'Choosing the right awning for your business might seem simple, but it\'s a decision that goes beyond design. The right awning can elevate your building\'s appearance, enhance visibility, and even provide practical benefits like weather protection. To make the best choice, it\'s crucial to consider your specific needs and future growth. And with the right partners, the process can be much smoother.',
       sections: [
@@ -93,7 +93,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Preserve your party tent with proper maintenance and cleaning services.',
     category: 'Events',
     date: '',
-    image: 'https://ext.same-assets.com/1191166484/3404599814.jpeg',
+    image: '/outdoor.jpg',
     content: {
       intro: 'Whether you want to take advantage of the changing weather or would like to showcase a jaw-dropping view, a party tent can be a great addition to your outdoor space. Canopies and tents can be manufactured in many shapes and sizes, providing a shield from wind, rain, heat and the sun, as well as helping to create an intimate and inviting space for your guests.',
       sections: [
