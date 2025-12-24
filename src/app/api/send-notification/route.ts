@@ -196,8 +196,8 @@ export async function POST(request: Request) {
     const resend = new Resend(resendApiKey);
 
     try {
-      // Send email to info@tradeblaze.net
-      console.log('Sending email to info@tradeblaze.net...');
+      // Send email to info@tradeblaze.net and dawn@awnguard.com
+      console.log('Sending email to info@tradeblaze.net and dawn@awnguard.com...');
 
       // Prepare email data
       const emailData: {
@@ -208,7 +208,7 @@ export async function POST(request: Request) {
         attachments?: { filename: string; content: Buffer }[];
       } = {
         from: 'AwnGuard Forms <forms@tradeblaze.net>',
-        to: ['info@tradeblaze.net'],
+        to: ['info@tradeblaze.net', 'dawn@awnguard.com'],
         subject: emailSubject,
         html: emailContent,
       };
