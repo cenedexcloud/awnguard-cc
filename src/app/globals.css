@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 210 10% 23%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 10% 23%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 23%;
+    --primary: 36 60% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 203 25% 63%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 203 15% 73%;
+    --muted-foreground: 210 10% 40%;
+    --accent: 36 60% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 10% 85%;
+    --input: 210 10% 85%;
+    --ring: 36 60% 42%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 210 10% 23%;
+    --foreground: 0 0% 98%;
+    --card: 210 10% 23%;
+    --card-foreground: 0 0% 98%;
+    --popover: 210 10% 23%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 36 60% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 203 25% 63%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 203 15% 43%;
+    --muted-foreground: 0 0% 73%;
+    --accent: 36 60% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 10% 35%;
+    --input: 210 10% 35%;
+    --ring: 36 60% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  .sharp-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
+
+/* Blog content links */
+.text-gray-600 a {
+  color: #1e3a5f;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.text-gray-600 a:hover {
+  color: #b8935f;
+}
+
+/* Accessibility Styles */
+.high-contrast {
+  filter: contrast(1.5);
+}
+
+.dark-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.dark-contrast * {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+.dark-contrast img,
+.dark-contrast video {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+.light-contrast {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.light-contrast * {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #000 !important;
+}
+
+.readable-font,
+.readable-font * {
+  font-family: 'Arial', 'Helvetica', sans-serif !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0.05em !important;
+}
+
+.highlight-links a {
+  background-color: #ffff00 !important;
+  color: #000 !important;
+  text-decoration: underline !important;
+  padding: 2px 4px !important;
+  border-radius: 2px !important;
+}
+
+.cursor-large,
+.cursor-large * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="white" stroke="black" stroke-width="2" d="M4,4 L4,28 L12,20 L16,28 L20,26 L16,18 L28,18 Z"/></svg>') 8 8, auto !important;
+}
+
+.cursor-extra-large,
+.cursor-extra-large * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path fill="white" stroke="black" stroke-width="3" d="M6,6 L6,42 L18,30 L24,42 L30,39 L24,27 L42,27 Z"/></svg>') 12 12, auto !important;
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid #000 !important;
+  outline-offset: 2px !important;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem 2rem;
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-to-main:focus {
+  left: 0;
+  top: 0;
+}
