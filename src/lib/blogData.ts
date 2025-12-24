@@ -194,7 +194,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Customer since 2003 - "You guys do a great job. There\'s no reason to switch."',
     category: 'Case Studies',
     date: '',
-    image: 'https://ext.same-assets.com/1191166484/3280702032.jpeg',
+    image: '/awn_cleaning.jpg',
     content: {
       intro: 'Boardwalk Development, Inc. has been a loyal AwnGuard customer since 2003, representing over two decades of trust and exceptional service. Their continued partnership exemplifies the long-term relationships we build with our commercial property clients.',
       sections: [
@@ -230,7 +230,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Customer since 2003 - "You just clean awnings for us and you do a great job!"',
     category: 'Case Studies',
     date: 'November 10, 2025',
-    image: 'https://ext.same-assets.com/1191166484/3435917382.jpeg',
+    image: '/awningpic.jpg',
     content: {
       intro: 'Arbor Center in Encinitas has been a valued AwnGuard customer since 2003, representing over two decades of trust and exceptional awning cleaning service. Their continued partnership demonstrates the quality and reliability we bring to commercial property management.',
       sections: [
@@ -248,7 +248,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Customer since 2013 - "I\'m glad you are our awning cleaners. We love you guys. We love working with a local small business."',
     category: 'Case Studies',
     date: 'November 11, 2025',
-    image: 'https://ext.same-assets.com/1191166484/1933892895.jpeg',
+    image: '/banner3.jpg',
     content: {
       intro: 'Tower 37 in Carlsbad has been a valued AwnGuard customer since 2013, representing over a decade of trust and exceptional awning cleaning service. Their continued partnership demonstrates the quality and reliability we bring to commercial property management and local small businesses.',
       sections: [
@@ -392,7 +392,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Valentine reflections from Dawn Wood and the AwnGuard team. A day for a little extra acknowledgement to tell the people you care about that you... well... care about them.',
     category: 'Business Tips',
     date: 'February 14, 2016',
-    image: 'https://ext.same-assets.com/1191166484/3399339703.jpeg',
+    image: '/forourpromise.jpg',
     content: {
       intro: 'So this week I\'ve been thinking about Valentine\'s Day (a personal favorite of mine since it is my mother\'s birthday.) I have heard other people sometimes grumble about consumerism, guilt-trip dates & way too much pressure to be especially romantic. I for the most part have ignored such sentiments since my experience with Valentine\'s Day was primarily making lots of homemade cards for my school friends, and then making lots of homemade cards for my children\'s school friends. We are up to 62 valentines. As a rule, we never bought greeting cards or other trinkets with the exception of birthday presents for mom. The romantic side of the holiday rarely came up in my youth – but I did like the general willingness of people to get into a more "loving" space in their lives. It was a nice holiday, not bogged down with religious ideologies, or nationalistic movements.',
       sections: [
@@ -472,7 +472,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Rain cleans fabric about as well as it cleans a dirty car. Professional awning cleaning lengthens the useable life of awning fabric and improves storefront appearance.',
     category: 'Awning Maintenance',
     date: 'October 15, 2015',
-    image: 'https://ext.same-assets.com/1191166484/727494273.jpeg',
+    image: '/wipe.jpg',
     content: {
       intro: 'I hear all the time, especially around winter storm season – how the rain will clean the awnings. Rain cleans fabric about as well as it cleans a dirty car. These before pictures were taken after the heavy rain storms in San Diego. Fabric that is not taken care of on a regular cleaning cycle, is likely to develop mold and mildew staining; especially during wet weather.',
       sections: [
@@ -494,7 +494,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Farewell to Jan Forest and welcoming Mary Rearick to the AwnGuard family. Meet our new back office operations lead.',
     category: 'Business Tips',
     date: 'May 15, 2015',
-    image: 'https://ext.same-assets.com/1191166484/3688608425.jpeg',
+    image: '/personcln.jpg',
     content: {
       intro: 'This past spring we bid farewell to Jan Forest who\'s path was taking her step by step to live in Colorado. While we will miss Jan, we are pleased to introduce Mary Rearick who has taken over Jan\'s responsibilities along with a few new ones.',
       sections: [
