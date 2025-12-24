@@ -50,7 +50,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Choosing the right awning for your business might seem simple, but it\'s a decision that goes beyond design.',
     category: 'Awning Maintenance',
     date: '',
-    image: 'https://ext.same-assets.com/1191166484/2873393069.false',
+    image: 'https://ext.same-assets.com/1191166484/2873393069.jpeg',
     content: {
       intro: 'Choosing the right awning for your business might seem simple, but it\'s a decision that goes beyond design. The right awning can elevate your building\'s appearance, enhance visibility, and even provide practical benefits like weather protection. To make the best choice, it\'s crucial to consider your specific needs and future growth. And with the right partners, the process can be much smoother.',
       sections: [
@@ -93,7 +93,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Preserve your party tent with proper maintenance and cleaning services.',
     category: 'Events',
     date: '',
-    image: 'https://ext.same-assets.com/1191166484/3404599814.false',
+    image: 'https://ext.same-assets.com/1191166484/3404599814.jpeg',
     content: {
       intro: 'Whether you want to take advantage of the changing weather or would like to showcase a jaw-dropping view, a party tent can be a great addition to your outdoor space. Canopies and tents can be manufactured in many shapes and sizes, providing a shield from wind, rain, heat and the sun, as well as helping to create an intimate and inviting space for your guests.',
       sections: [
@@ -111,7 +111,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'We\'re nearing the end of the coronavirus pandemic, but we\'re not out of the woods. That\'s why businesses need to rethink their overall strategies.',
     category: 'Business Tips',
     date: '',
-    image: 'https://ext.same-assets.com/1191166484/676812335.false',
+    image: 'https://ext.same-assets.com/1191166484/676812335.jpeg',
     content: {
       intro: 'We\'re nearing the end of the coronavirus pandemic, but we\'re not out of the woods. That\'s why businesses need to rethink their overall strategies in order to stay afloat. As restrictions lift and the weather is changing, it\'s time to talk about how you can take advantage of your outdoor space if you haven\'t already.\n\nAwnings will give your brick-and-mortar business a much-needed facelift, which is why you should consider getting them as part of your re-opening marketing strategy.\n\nIn terms of awning solutions, here are a few things to keep in mind.',
       sections: [
@@ -194,7 +194,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Customer since 2003 - "You guys do a great job. There\'s no reason to switch."',
     category: 'Case Studies',
     date: '',
-    image: 'https://ext.same-assets.com/1191166484/3280702032.false',
+    image: 'https://ext.same-assets.com/1191166484/3280702032.jpeg',
     content: {
       intro: 'Boardwalk Development, Inc. has been a loyal AwnGuard customer since 2003, representing over two decades of trust and exceptional service. Their continued partnership exemplifies the long-term relationships we build with our commercial property clients.',
       sections: [
@@ -230,7 +230,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Customer since 2003 - "You just clean awnings for us and you do a great job!"',
     category: 'Case Studies',
     date: 'November 10, 2025',
-    image: 'https://ext.same-assets.com/1191166484/3435917382.false',
+    image: 'https://ext.same-assets.com/1191166484/3435917382.jpeg',
     content: {
       intro: 'Arbor Center in Encinitas has been a valued AwnGuard customer since 2003, representing over two decades of trust and exceptional awning cleaning service. Their continued partnership demonstrates the quality and reliability we bring to commercial property management.',
       sections: [
@@ -248,7 +248,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Customer since 2013 - "I\'m glad you are our awning cleaners. We love you guys. We love working with a local small business."',
     category: 'Case Studies',
     date: 'November 11, 2025',
-    image: 'https://ext.same-assets.com/1191166484/1933892895.false',
+    image: 'https://ext.same-assets.com/1191166484/1933892895.jpeg',
     content: {
       intro: 'Tower 37 in Carlsbad has been a valued AwnGuard customer since 2013, representing over a decade of trust and exceptional awning cleaning service. Their continued partnership demonstrates the quality and reliability we bring to commercial property management and local small businesses.',
       sections: [
@@ -392,7 +392,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Valentine reflections from Dawn Wood and the AwnGuard team. A day for a little extra acknowledgement to tell the people you care about that you... well... care about them.',
     category: 'Business Tips',
     date: 'February 14, 2016',
-    image: 'https://ext.same-assets.com/1191166484/3399339703.false',
+    image: 'https://ext.same-assets.com/1191166484/3399339703.jpeg',
     content: {
       intro: 'So this week I\'ve been thinking about Valentine\'s Day (a personal favorite of mine since it is my mother\'s birthday.) I have heard other people sometimes grumble about consumerism, guilt-trip dates & way too much pressure to be especially romantic. I for the most part have ignored such sentiments since my experience with Valentine\'s Day was primarily making lots of homemade cards for my school friends, and then making lots of homemade cards for my children\'s school friends. We are up to 62 valentines. As a rule, we never bought greeting cards or other trinkets with the exception of birthday presents for mom. The romantic side of the holiday rarely came up in my youth – but I did like the general willingness of people to get into a more "loving" space in their lives. It was a nice holiday, not bogged down with religious ideologies, or nationalistic movements.',
       sections: [
@@ -472,7 +472,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Rain cleans fabric about as well as it cleans a dirty car. Professional awning cleaning lengthens the useable life of awning fabric and improves storefront appearance.',
     category: 'Awning Maintenance',
     date: 'October 15, 2015',
-    image: 'https://ext.same-assets.com/1191166484/727494273.false',
+    image: 'https://ext.same-assets.com/1191166484/727494273.jpeg',
     content: {
       intro: 'I hear all the time, especially around winter storm season – how the rain will clean the awnings. Rain cleans fabric about as well as it cleans a dirty car. These before pictures were taken after the heavy rain storms in San Diego. Fabric that is not taken care of on a regular cleaning cycle, is likely to develop mold and mildew staining; especially during wet weather.',
       sections: [
@@ -494,13 +494,13 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Farewell to Jan Forest and welcoming Mary Rearick to the AwnGuard family. Meet our new back office operations lead.',
     category: 'Business Tips',
     date: 'May 15, 2015',
-    image: 'https://ext.same-assets.com/1191166484/3688608425.false',
+    image: 'https://ext.same-assets.com/1191166484/3688608425.jpeg',
     content: {
       intro: 'This past spring we bid farewell to Jan Forest who\'s path was taking her step by step to live in Colorado. While we will miss Jan, we are pleased to introduce Mary Rearick who has taken over Jan\'s responsibilities along with a few new ones.',
       sections: [
         {
           heading: 'Welcoming Mary Rearick',
-          content: 'Mary has been with us since February. She has quickly made herself indispensable. AwnGuard is truly fortunate to have such a high caliber person moving into the lead in our back office operations. If you have the pleasure of speaking with her, feel free to pass on an "attaboy" from us.\n\n<div style="text-align: center; margin-top: 20px;"><img src="https://ext.same-assets.com/1191166484/3713386457.false" alt="Mary Rearick" style="max-width: 400px; width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" /></div>\n\n<div style="margin-top: 20px; padding: 15px; background-color: #f5f5f5; border-left: 4px solid #8ca5b4;"><strong>Team Update:</strong> While change can be bittersweet, we\'re excited about the new energy and expertise Mary brings to AwnGuard. Our commitment to exceptional customer service continues stronger than ever.</div>'
+          content: 'Mary has been with us since February. She has quickly made herself indispensable. AwnGuard is truly fortunate to have such a high caliber person moving into the lead in our back office operations. If you have the pleasure of speaking with her, feel free to pass on an "attaboy" from us.\n\n<div style="text-align: center; margin-top: 20px;"><img src="https://ext.same-assets.com/1191166484/3713386457.jpeg" alt="Mary Rearick" style="max-width: 400px; width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" /></div>\n\n<div style="margin-top: 20px; padding: 15px; background-color: #f5f5f5; border-left: 4px solid #8ca5b4;"><strong>Team Update:</strong> While change can be bittersweet, we\'re excited about the new energy and expertise Mary brings to AwnGuard. Our commitment to exceptional customer service continues stronger than ever.</div>'
         }
       ]
     }
