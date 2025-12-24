@@ -14,7 +14,7 @@
     "clsx": "^2.1.1",
     "googleapis": "^164.1.0",
     "lucide-react": "^0.475.0",
-    "next": "^15.3.2",
+    "next": "^16.1.1",
     "nodemailer": "^7.0.10",
     "pdf-to-png-converter": "^3.10.0",
     "react": "^18.3.1",
