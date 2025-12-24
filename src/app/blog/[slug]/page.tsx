@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Facebook, Linkedin, MessageCircle, Mail } from 'lucide-react';
+import { Facebook, Linkedin, Mail } from 'lucide-react';
 import { blogPosts } from '@/lib/blogData';
 import { notFound } from 'next/navigation';
 
@@ -135,9 +135,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </button>
             <button className="text-[#b8935f] hover:text-[#8b7049] transition-colors" aria-label="Share on LinkedIn">
               <Linkedin className="w-6 h-6" />
-            </button>
-            <button className="text-[#b8935f] hover:text-[#8b7049] transition-colors" aria-label="Share on WhatsApp">
-              <MessageCircle className="w-6 h-6" />
             </button>
             <button className="text-[#b8935f] hover:text-[#8b7049] transition-colors" aria-label="Share via Email">
               <Mail className="w-6 h-6" />
