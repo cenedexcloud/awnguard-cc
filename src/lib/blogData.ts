@@ -111,7 +111,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'We\'re nearing the end of the coronavirus pandemic, but we\'re not out of the woods. That\'s why businesses need to rethink their overall strategies.',
     category: 'Business Tips',
     date: '',
-    image: 'https://ext.same-assets.com/1191166484/676812335.jpeg',
+    image: '/awn.jpg',
     content: {
       intro: 'We\'re nearing the end of the coronavirus pandemic, but we\'re not out of the woods. That\'s why businesses need to rethink their overall strategies in order to stay afloat. As restrictions lift and the weather is changing, it\'s time to talk about how you can take advantage of your outdoor space if you haven\'t already.\n\nAwnings will give your brick-and-mortar business a much-needed facelift, which is why you should consider getting them as part of your re-opening marketing strategy.\n\nIn terms of awning solutions, here are a few things to keep in mind.',
       sections: [
