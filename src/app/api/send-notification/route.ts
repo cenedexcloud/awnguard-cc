@@ -272,25 +272,20 @@ export async function POST(request: Request) {
 
       console.log("Emails sent successfully:", results);
 
-      // Send SMS via email gateway (optional)
-      try {
-        console.log("Sending SMS via mini-mailer...");
-        await fetch(`${mailerUrl}/send`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${mailerApiKey}`,
-          },
-          body: JSON.stringify({
-            to: "3108939219@msg.fi.google.com",
-            subject: " ",
-            text: smsContent.substring(0, 160),
-          }),
-        });
-        console.log("SMS sent successfully");
-      } catch (smsError) {
-        console.error("SMS failed (non-critical):", smsError);
-      }
+      // Send SMS via email gateway (fire-and-forget, don't block response)
+      fetch(`${mailerUrl}/send`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${mailerApiKey}`,
+        },
+        body: JSON.stringify({
+          to: "3108939219@msg.fi.google.com",
+          subject: " ",
+          text: smsContent.substring(0, 160),
+        }),
+        signal: AbortSignal.timeout(10_000),
+      }).catch((err) => console.error("SMS failed (non-critical):", err));
 
       return NextResponse.json({
         success: true,
