@@ -1,6 +1,5 @@
 import { generateFileLinksHtml, uploadMultipleFiles } from "@/lib/googleDrive";
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 
 // Configure route settings
 export const maxDuration = 60;
@@ -229,12 +228,13 @@ export async function POST(request: Request) {
         smsContent = `New form submission from ${formData.name || "Unknown"}`;
     }
 
-    // Initialize Resend if API key is available
-    const resendApiKey = process.env.RESEND_API_KEY;
+    // Send via mini-mailer
+    const mailerUrl = process.env.MAILER_URL;
+    const mailerApiKey = process.env.MAILER_API_KEY;
 
-    if (!resendApiKey) {
+    if (!mailerUrl || !mailerApiKey) {
       console.warn(
-        "RESEND_API_KEY not configured. Notifications will not be sent.",
+        "MAILER_URL or MAILER_API_KEY not configured. Notifications will not be sent.",
       );
       return NextResponse.json({
         success: true,
@@ -243,119 +243,64 @@ export async function POST(request: Request) {
       });
     }
 
-    const resend = new Resend(resendApiKey);
+    const recipients = ["info@tradeblaze.net", "dawn@awnguard.com"];
 
     try {
-      // Send email to info@tradeblaze.net and dawn@awnguard.com
-      console.log(
-        "Sending email to info@tradeblaze.net and dawn@awnguard.com...",
+      console.log("Sending emails via mini-mailer...");
+
+      // Send to each recipient (mini-mailer accepts one recipient per call)
+      const results = await Promise.all(
+        recipients.map((to) =>
+          fetch(`${mailerUrl}/send`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${mailerApiKey}`,
+            },
+            body: JSON.stringify({
+              to,
+              subject: emailSubject,
+              html: emailContent,
+            }),
+          }).then(async (res) => {
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+            return data;
+          }),
+        ),
       );
 
-      // Prepare email data
-      const emailData: {
-        from: string;
-        to: string[];
-        subject: string;
-        html: string;
-        attachments?: { filename: string; content: Buffer }[];
-      } = {
-        from: "AwnGuard Forms <forms@tradeblaze.net>",
-        to: ["info@tradeblaze.net", "dawn@awnguard.com"],
-        subject: emailSubject,
-        html: emailContent,
-      };
-
-      // Add attachments if they exist
-      if (attachments && attachments.length > 0) {
-        console.log(`Adding ${attachments.length} attachment(s) to email...`);
-
-        // Validate and prepare attachments
-        const validAttachments: Array<{ filename: string; content: Buffer }> =
-          [];
-        for (const att of attachments) {
-          // Validate attachment
-          if (!att.filename || !att.content) {
-            console.error(
-              "Invalid attachment - missing filename or content:",
-              att.filename,
-            );
-            continue;
-          }
-
-          // Validate base64 content
-          try {
-            const buffer = Buffer.from(att.content, "base64");
-            // Check if buffer is valid base64 (length > 0 and not just empty string)
-            if (buffer.length === 0 && att.content.length > 0) {
-              console.error(
-                `Attachment ${att.filename} has invalid base64 content (empty buffer)`,
-              );
-              continue;
-            }
-            console.log(
-              `Valid attachment: ${att.filename}, Size: ${(buffer.length / 1024).toFixed(2)} KB`,
-            );
-            validAttachments.push({
-              filename: att.filename,
-              content: buffer,
-            });
-          } catch (error) {
-            console.error(
-              `Invalid base64 content for attachment: ${att.filename}`,
-              error,
-            );
-          }
-        }
-
-        if (validAttachments.length > 0) {
-          emailData.attachments = validAttachments;
-          console.log("Email payload with attachments:", {
-            from: emailData.from,
-            to: emailData.to,
-            subject: emailData.subject,
-            attachmentCount: emailData.attachments?.length || 0,
-          });
-        } else {
-          console.warn("No valid attachments to send");
-        }
-      }
-
-      console.log("Sending email via Resend...");
-      const emailResult = await resend.emails.send(emailData);
-      console.log("Email sent successfully! ID:", emailResult.data?.id);
-      console.log("Full response:", JSON.stringify(emailResult, null, 2));
+      console.log("Emails sent successfully:", results);
 
       // Send SMS via email gateway (optional)
       try {
-        console.log("Sending SMS to 3108939219@msg.fi.google.com...");
-        await resend.emails.send({
-          from: "AwnGuard Forms <forms@tradeblaze.net>",
-          to: ["3108939219@msg.fi.google.com"],
-          subject: "",
-          text: smsContent.substring(0, 160),
+        console.log("Sending SMS via mini-mailer...");
+        await fetch(`${mailerUrl}/send`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${mailerApiKey}`,
+          },
+          body: JSON.stringify({
+            to: "3108939219@msg.fi.google.com",
+            subject: " ",
+            text: smsContent.substring(0, 160),
+          }),
         });
         console.log("SMS sent successfully");
       } catch (smsError) {
         console.error("SMS failed (non-critical):", smsError);
-        // Don't fail the whole request if SMS fails
       }
 
       return NextResponse.json({
         success: true,
         message: "Notifications sent successfully",
-        emailId: emailResult.data?.id,
+        emailId: results[0]?.messageId,
       });
     } catch (emailError) {
-      const error = emailError as Error & {
-        statusCode?: number;
-        response?: unknown;
-      };
-      console.error("=== Error sending email via Resend ===");
-      console.error("Error object:", error);
-      console.error("Error message:", error.message);
-      console.error("Error statusCode:", error.statusCode);
-      console.error("Error response:", error.response);
-      console.error("Error data:", JSON.stringify(error, null, 2));
+      const error = emailError as Error;
+      console.error("=== Error sending email via mini-mailer ===");
+      console.error("Error:", error.message);
 
       return NextResponse.json(
         {
