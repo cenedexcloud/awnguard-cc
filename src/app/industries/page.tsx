@@ -10,7 +10,7 @@ export const metadata = {
 
 const industries = [
   {
-    image: '/industry-property-management.jpg',
+    image: '/gallery/awning-manufacture-1765310336357-zodivcc6a8r.jpg',
     title: 'Property Management',
     description: 'We have a long history of partnering with small to large scale property management firms. This collaboration is at the core of our business development and retention. Serving commercial properties is our passion.',
   },
