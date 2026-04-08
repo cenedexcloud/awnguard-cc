@@ -10,42 +10,42 @@ export const metadata = {
 
 const industries = [
   {
-    image: '/industries.jpg',
+    image: '/industry-property-management.jpg',
     title: 'Property Management',
     description: 'We have a long history of partnering with small to large scale property management firms. This collaboration is at the core of our business development and retention. Serving commercial properties is our passion.',
   },
   {
-    image: '/gallery/awning-cleaning-1765310214178-iw4pfoo7er.jpg',
+    image: '/industry-hoa.jpg',
     title: 'Home Owner Associations',
     description: 'Balancing high-quality outcomes with the individual needs of each property makes Awn Guard the choice for many HOAs and HOA Management Organizations.',
   },
   {
-    image: '/gallery/awning-cleaning-1765310214419-a8yuugv20dq.jpg',
+    image: '/industry-apartments.jpg',
     title: 'Apartment Management',
     description: 'We go the extra mile to reduce resident impact during service and finish with lasting results.',
   },
   {
-    image: '/gallery/awning-cleaning-1765310214616-hm0bp2ak64h.jpg',
+    image: '/industry-corporate.jpg',
     title: 'Corporate Chains',
     description: 'Chain restaurants, services, and other businesses often have awnings. If you\'ve been to a strip mall recently, you\'d notice they\'re everywhere. We make a commitment to perform our services efficiently without disrupting business.',
   },
   {
-    image: '/gallery/awning-manufacture-1765310335203-wgb9tywf06.jpg',
+    image: '/industry-property-owners.jpg',
     title: 'Property Owners',
     description: 'It is always important to have a property be in top shape, so we go the extra mile to make sure our awning services meet their standards.',
   },
   {
-    image: '/gallery/awning-manufacture-1765310335373-ajx5wudlzl9.jpg',
+    image: '/industry-business-owners.jpg',
     title: 'Business Owners',
     description: 'We support and service small businesses in our community; from surf shops to boutiques. Individual small businesses are one of our cornerstone customers.',
   },
   {
-    image: '/gallery/awning-manufacture-1765310335541-e41cuk0ty6w.jpg',
+    image: '/industry-hotels.jpg',
     title: 'Hotels',
     description: 'A hotel\'s first impression is usually the outside and it is important that the awning looks phenomenal.',
   },
   {
-    image: '/gallery/awning-manufacture-1765310335709-e7qpg0d4xcv.jpg',
+    image: '/industry-timeshare.jpg',
     title: 'Time-Share',
     description: 'A great first impression can lead to future bookings which is why having a top of the line awning is crucial.',
   },
