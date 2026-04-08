@@ -19,8 +19,7 @@ export async function POST(request: Request) {
     let body;
     try {
       body = await request.json();
-    } catch (parseError) {
-      console.error("Error parsing request body:", parseError);
+    } catch {
       return NextResponse.json(
         {
           success: false,
@@ -48,22 +47,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Log incoming data for debugging
-    console.log("=== Incoming Form Submission ===");
-    console.log("Form Type:", formType);
-    console.log("Form Data:", JSON.stringify(formData, null, 2));
-    console.log("Attachments received:", attachments?.length || 0);
-    if (attachments && attachments.length > 0) {
-      console.log(
-        "Attachment details:",
-        attachments.map((a: Attachment) => ({
-          filename: a.filename,
-          type: a.type,
-          size: a.content?.length || 0,
-        })),
-      );
-    }
-
     // Upload attachments to Google Drive if present
     let fileLinksHtml = "";
     const useGoogleDrive =
@@ -71,21 +54,9 @@ export async function POST(request: Request) {
       process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL &&
       process.env.GOOGLE_PRIVATE_KEY;
 
-    console.log("[API] ===== GOOGLE DRIVE CHECK =====");
-    console.log("[API] Has Folder ID:", !!process.env.GOOGLE_DRIVE_FOLDER_ID);
-    console.log(
-      "[API] Has Service Email:",
-      !!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    );
-    console.log("[API] Has Private Key:", !!process.env.GOOGLE_PRIVATE_KEY);
-    console.log("[API] Use Google Drive:", useGoogleDrive);
-    console.log("[API] Attachments:", attachments?.length || 0, "files");
-
     if (attachments && attachments.length > 0) {
       if (useGoogleDrive) {
         try {
-          console.log("[API] ===== UPLOADING TO GOOGLE DRIVE =====");
-          console.log("[API] Uploading", attachments.length, "files...");
           const uploadResults = await uploadMultipleFiles(
             attachments.map((att: Attachment) => ({
               content: att.content,
@@ -95,22 +66,8 @@ export async function POST(request: Request) {
             formType,
             formData.name || "Unknown",
           );
-          console.log(
-            "[API] ✓ Successfully uploaded",
-            uploadResults.length,
-            "files",
-          );
           fileLinksHtml = generateFileLinksHtml(uploadResults);
-          console.log("[API] ✓ Generated file links HTML");
-        } catch (driveError) {
-          const error = driveError as Error & {
-            message: string;
-            stack?: string;
-          };
-          console.error("[API] ===== GOOGLE DRIVE ERROR =====");
-          console.error("[API] Error:", error);
-          console.error("[API] Message:", error.message);
-          console.error("[API] Stack:", error.stack);
+        } catch {
           // Fall back to listing filenames only
           const fileNames = attachments
             .map((a: Attachment) => a.filename)
@@ -118,7 +75,6 @@ export async function POST(request: Request) {
           fileLinksHtml = `<p><strong>Files uploaded:</strong> ${fileNames}</p><p><em>Note: File links temporarily unavailable. Files were received.</em></p>`;
         }
       } else {
-        console.log("Google Drive not configured - listing filenames only");
         const fileNames = attachments
           .map((a: Attachment) => a.filename)
           .join(", ");
@@ -233,9 +189,6 @@ export async function POST(request: Request) {
     const mailerApiKey = process.env.MAILER_API_KEY;
 
     if (!mailerUrl || !mailerApiKey) {
-      console.warn(
-        "MAILER_URL or MAILER_API_KEY not configured. Notifications will not be sent.",
-      );
       return NextResponse.json({
         success: true,
         message: "Form submitted successfully",
@@ -243,13 +196,10 @@ export async function POST(request: Request) {
       });
     }
 
-    const recipients = ["info@tradeblaze.net", "dawn@awnguard.com"];
+    const recipients = ["dawn@awnguard.com"];
 
     try {
-      console.log("Sending emails via mini-mailer...");
-
-      // Send to each recipient (mini-mailer accepts one recipient per call)
-      const results = await Promise.all(
+      const results = await Promise.allSettled(
         recipients.map((to) =>
           fetch(`${mailerUrl}/send`, {
             method: "POST",
@@ -265,14 +215,14 @@ export async function POST(request: Request) {
           }).then(async (res) => {
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
-            return data;
+            return { to, ...data };
           }),
         ),
       );
 
-      console.log("Emails sent successfully:", results);
+      const succeeded = results.filter((r) => r.status === "fulfilled");
 
-      // Send SMS via email gateway (fire-and-forget, don't block response)
+      // Send SMS via email gateway (fire-and-forget)
       fetch(`${mailerUrl}/send`, {
         method: "POST",
         headers: {
@@ -285,18 +235,19 @@ export async function POST(request: Request) {
           text: smsContent.substring(0, 160),
         }),
         signal: AbortSignal.timeout(10_000),
-      }).catch((err) => console.error("SMS failed (non-critical):", err));
+      }).catch(() => {});
+
+      if (succeeded.length === 0) {
+        throw new Error("All email sends failed");
+      }
 
       return NextResponse.json({
         success: true,
         message: "Notifications sent successfully",
-        emailId: results[0]?.messageId,
+        emailId: (succeeded[0] as PromiseFulfilledResult<{ messageId?: string }>).value.messageId,
       });
     } catch (emailError) {
       const error = emailError as Error;
-      console.error("=== Error sending email via mini-mailer ===");
-      console.error("Error:", error.message);
-
       return NextResponse.json(
         {
           success: false,
@@ -307,8 +258,6 @@ export async function POST(request: Request) {
     }
   } catch (error) {
     const err = error as Error;
-    console.error("Error processing request:", error);
-    console.error("Error stack:", err.stack);
     return NextResponse.json(
       {
         success: false,
