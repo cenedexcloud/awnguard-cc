@@ -196,7 +196,7 @@ export async function POST(request: Request) {
       });
     }
 
-    const recipients = ["dawn@awnguard.com"];
+    const recipients = ["contact@awnguard.com"];
 
     try {
       const results = await Promise.allSettled(
@@ -244,7 +244,9 @@ export async function POST(request: Request) {
       return NextResponse.json({
         success: true,
         message: "Notifications sent successfully",
-        emailId: (succeeded[0] as PromiseFulfilledResult<{ messageId?: string }>).value.messageId,
+        emailId: (
+          succeeded[0] as PromiseFulfilledResult<{ messageId?: string }>
+        ).value.messageId,
       });
     } catch (emailError) {
       const error = emailError as Error;
